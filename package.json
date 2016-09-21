@@ -1,0 +1,25 @@
+{
+  "name": "fluctuate",
+  "version": "0.0.0",
+  "description": "Transform shallow object to deep object.",
+  "main": "fluctuate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volkovasystems/fluctuate.git"
+  },
+  "keywords": [
+    "shallow",
+    "deep",
+    "object",
+    "fluctuate"
+  ],
+  "author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/volkovasystems/fluctuate/issues"
+  },
+  "homepage": "https://github.com/volkovasystems/fluctuate#readme"
+}

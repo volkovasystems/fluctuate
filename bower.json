@@ -1,0 +1,23 @@
+{
+  "name": "fluctuate",
+  "description": "Transform shallow object to deep object.",
+  "main": "fluctuate.js",
+  "authors": [
+    "Richeve S. Bebedor <richeve.bebedor@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "shallow",
+    "deep",
+    "object",
+    "fluctuate"
+  ],
+  "homepage": "https://github.com/volkovasystems/fluctuate",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
