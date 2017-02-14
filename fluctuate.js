@@ -5,7 +5,7 @@
 		The MIT License (MIT)
 		@mit-license
 
-		Copyright (@c) 2016 Richeve Siodina Bebedor
+		Copyright (@c) 2017 Richeve Siodina Bebedor
 		@email: richeve.bebedor@gmail.com
 
 		Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,44 +46,133 @@
 	@end-module-documentation
 
 	@include:
+		{
+			"falzy": "falzy",
+			"kount": "kount",
+			"numric": "numric",
+			"U200b": "u200b",
+			"protype": "protype",
+			"truly": "truly"
+		}
 	@end-include
 */
 
-var fluctuate = function fluctuate( entity ){
-	var key = Object.keys( entity );
+const falzy = require( "falzy" );
+const kount = require( "kount" );
+const numric = require( "numric" );
+const U200b = require( "u200b" );
+const protype = require( "protype" );
+const truly = require( "truly" );
 
-	var index = key
-		.filter( function onEachProperty( property ){
-			return ( /^\d+$/ ).test( property );
-		} )
-		.map( function onEachPoint( point ){
-			return parseInt( point );
-		} );
+const ACCUMULATOR_PATTERN = /\.{3}/;
+const REFERENCE_PATTERN = /^\./;
 
-	if( index.length != 0 ){
-		var array = [ ];
+const fluctuate = function fluctuate( entity ){
+	/*;
+		@meta-configuration:
+			{
+				"entity:required": [
+					"object",
+					Array
+				]
+			}
+		@end-meta-configuration
+	*/
 
-		index.forEach( function onEachPoint( point ){
-			array[ point ] = entity[ point ];
-		} );
 
-		return array;
-
-	}else{
-		var data = { };
-
-		key
-			.filter( function onEachProperty( property ){
-				return !( /\./ ).test( property );
-			} )
-			.forEach( function onEachProperty( property ){
-				data[ property ] = entity[ property ];
-			} );
-
-		return data;
+	if( falzy( entity ) || !protype( entity, OBJECT ) ){
+		throw new Error( "invalid entity" );
 	}
+
+	if( kount( entity ) == 0 ){
+		return entity;
+	}
+
+	let key = Object.keys( entity );
+
+	/*;
+		@note:
+			By default we will assume this is an object.
+		@end-note
+	*/
+	let container = { };
+
+	/*;
+		@note:
+			Check the first key, this will change the container.
+		@end-note
+	*/
+	if( numric( U200b( key[ 0 ] ).separate( )[ 0 ] ) ){
+		container = [ ];
+	}
+
+	key
+		.filter( ( key ) => { return !ACCUMULATOR_PATTERN.test( key ); } )
+		.filter( ( key ) => {
+			let value = entity[ key ];
+
+			return falzy( value ) || !protype( value, OBJECT );
+		} )
+		.forEach( ( key ) => {
+			let value = entity[ key ];
+			let chain = U200b( key ).separate( )
+				.map( ( property ) => { return property.replace( REFERENCE_PATTERN, "" ); } );
+			let length = chain.length;
+
+			if( length == 1 ){
+				if( numric( key ) ){
+					container[ parseInt( key ) ] = value;
+
+				}else{
+					container[ key ] = value;
+				}
+
+				return;
+			}
+
+			let data = container;
+
+			chain.forEach( ( property, index ) => {
+				let nextIndex = index + 1;
+
+				if( nextIndex == length ){
+					data[ property ] = value;
+
+					return;
+				}
+
+				if( numric( property ) ){
+					property = parseInt( property );
+
+					if( truly( data[ property ] ) ){
+						data = data[ property ];
+
+						return;
+					}
+
+					if( nextIndex < length && numric( chain[ nextIndex ] ) ){
+						data = data[ property ] = [ ];
+
+					}else if( numric( property ) && nextIndex < length ){
+						data = data[ property ] = { };
+					}
+
+					return;
+				}
+
+				if( truly( data[ property ] ) ){
+					data = data[ property ];
+
+				}else if( nextIndex < length && numric( chain[ nextIndex ] ) ){
+					data = data[ property ] = [ ];
+
+				}else if( nextIndex < length ){
+					data = data[ property ] = { };
+				}
+			} );
+		} );
+
+	return container;
 };
 
-if( typeof module != "undefined" ){
-	module.exports = fluctuate;
-}
+module.exports = fluctuate;
