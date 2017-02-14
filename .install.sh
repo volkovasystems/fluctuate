@@ -10,7 +10,6 @@ truly \
 yarn add \
 babel-cli \
 babel-core \
-babel-loader \
 babel-plugin-transform-runtime \
 babel-preset-latest \
 loosen \
