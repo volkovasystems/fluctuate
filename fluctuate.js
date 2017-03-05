@@ -48,6 +48,7 @@
 	@include:
 		{
 			"falzy": "falzy",
+			"harden": "harden",
 			"kount": "kount",
 			"numric": "numric",
 			"U200b": "u200b",
@@ -58,6 +59,7 @@
 */
 
 const falzy = require( "falzy" );
+const harden = require( "harden" );
 const kount = require( "kount" );
 const numric = require( "numric" );
 const U200b = require( "u200b" );
@@ -65,7 +67,12 @@ const protype = require( "protype" );
 const truly = require( "truly" );
 
 const ACCUMULATOR_PATTERN = /\.{3}/;
+const FORMAT = Symbol.for( "format" );
+const LOOSENED = "loosened";
 const REFERENCE_PATTERN = /^\./;
+
+harden( "ARRAY_FORMAT", "array-format" );
+harden( "OBJECT_FORMAT", "object-format" );
 
 const fluctuate = function fluctuate( entity ){
 	/*;
@@ -79,9 +86,12 @@ const fluctuate = function fluctuate( entity ){
 		@end-meta-configuration
 	*/
 
-
 	if( falzy( entity ) || !protype( entity, OBJECT ) ){
 		throw new Error( "invalid entity" );
+	}
+
+	if( entity.LOOSENED !== LOOSENED ){
+		return entity;
 	}
 
 	if( kount( entity ) == 0 ){
@@ -102,8 +112,12 @@ const fluctuate = function fluctuate( entity ){
 			Check the first key, this will change the container.
 		@end-note
 	*/
-	if( numric( U200b( key[ 0 ] ).separate( )[ 0 ] ) ){
+	if( entity[ FORMAT ] === ARRAY_FORMAT || numric( U200b( key[ 0 ] ).separate( )[ 0 ] ) ){
 		container = [ ];
+	}
+
+	if( entity[ FORMAT ] === OBJECT_FORMAT ){
+		container = { };
 	}
 
 	key

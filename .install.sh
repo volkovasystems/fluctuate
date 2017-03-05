@@ -1,6 +1,7 @@
 yarn add \
 babel-runtime \
 falzy \
+harden \
 kount \
 numric \
 u200b \
@@ -18,6 +19,7 @@ webpack \
 --dev && \
 bower install \
 falzy \
+harden \
 kount \
 numric \
 u200b \

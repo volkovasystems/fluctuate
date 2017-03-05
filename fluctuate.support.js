@@ -48,6 +48,7 @@
               	@include:
               		{
               			"falzy": "falzy",
+              			"harden": "harden",
               			"kount": "kount",
               			"numric": "numric",
               			"U200b": "u200b",
@@ -55,9 +56,10 @@
               			"truly": "truly"
               		}
               	@end-include
-              */var _keys = require("babel-runtime/core-js/object/keys");var _keys2 = _interopRequireDefault(_keys);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+              */var _keys = require("babel-runtime/core-js/object/keys");var _keys2 = _interopRequireDefault(_keys);var _for = require("babel-runtime/core-js/symbol/for");var _for2 = _interopRequireDefault(_for);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var falzy = require("falzy");
+var harden = require("harden");
 var kount = require("kount");
 var numric = require("numric");
 var U200b = require("u200b");
@@ -65,7 +67,12 @@ var protype = require("protype");
 var truly = require("truly");
 
 var ACCUMULATOR_PATTERN = /\.{3}/;
+var FORMAT = (0, _for2.default)("format");
+var LOOSENED = "loosened";
 var REFERENCE_PATTERN = /^\./;
+
+harden("ARRAY_FORMAT", "array-format");
+harden("OBJECT_FORMAT", "object-format");
 
 var fluctuate = function fluctuate(entity) {
 	/*;
@@ -79,9 +86,12 @@ var fluctuate = function fluctuate(entity) {
                                             	@end-meta-configuration
                                             */
 
-
 	if (falzy(entity) || !protype(entity, OBJECT)) {
 		throw new Error("invalid entity");
+	}
+
+	if (entity.LOOSENED !== LOOSENED) {
+		return entity;
 	}
 
 	if (kount(entity) == 0) {
@@ -102,8 +112,12 @@ var fluctuate = function fluctuate(entity) {
                      		Check the first key, this will change the container.
                      	@end-note
                      */
-	if (numric(U200b(key[0]).separate()[0])) {
+	if (entity[FORMAT] === ARRAY_FORMAT || numric(U200b(key[0]).separate()[0])) {
 		container = [];
+	}
+
+	if (entity[FORMAT] === OBJECT_FORMAT) {
+		container = {};
 	}
 
 	key.

@@ -1,13 +1,13 @@
 {
   "name": "fluctuate",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Transform shallow object to deep object.",
   "main": "fluctuate.js",
   "support": "fluctuate.support.js",
   "deploy": "fluctuate.deploy.js",
   "browser": "fluctuate.deploy.js",
   "scripts": {
-    "build": "babel fluctuate.js --out-file fluctuate.support.js --source-maps && webpack --progress",
+    "build": "babel fluctuate.js --out-file fluctuate.support.js --source-maps && webpack --progress --display-modules",
     "test": "mocha fluctuate-test.js"
   },
   "repository": {
@@ -28,19 +28,20 @@
   "homepage": "https://github.com/volkovasystems/fluctuate#readme",
   "dependencies": {
     "babel-runtime": "^6.23.0",
-    "falzy": "^0.12.0",
-    "kount": "^0.8.0",
-    "numric": "^0.7.0",
-    "protype": "^0.16.0",
-    "truly": "^0.12.0",
-    "u200b": "^0.10.0"
+    "falzy": "^0.14.0",
+    "harden": "^0.17.0",
+    "kount": "^0.10.0",
+    "numric": "^0.8.0",
+    "protype": "^0.18.0",
+    "truly": "^0.14.0",
+    "u200b": "^0.15.0"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-latest": "^6.22.0",
-    "loosen": "^0.5.0",
+    "loosen": "^0.10.0",
     "source-map-loader": "^0.1.6",
     "webpack": "^2.2.1"
   }

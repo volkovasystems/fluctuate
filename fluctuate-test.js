@@ -31,3 +31,7 @@ let data = loosen( {
 console.log( require( "util").inspect( data, { "depth": 5 } ) );
 
 console.log( require( "util").inspect( fluctuate( data ), { "depth": 5 } ) );
+
+let globalData = loosen( global, 1, true );
+
+console.log( fluctuate( globalData ) );
