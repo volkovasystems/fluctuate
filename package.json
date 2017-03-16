@@ -1,6 +1,6 @@
 {
   "name": "fluctuate",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Transform shallow object to deep object.",
   "main": "fluctuate.js",
   "support": "fluctuate.support.js",
@@ -21,6 +21,9 @@
     "fluctuate"
   ],
   "author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+  "contributors": [
+    "John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/volkovasystems/fluctuate/issues"
@@ -28,21 +31,21 @@
   "homepage": "https://github.com/volkovasystems/fluctuate#readme",
   "dependencies": {
     "babel-runtime": "^6.23.0",
-    "falzy": "^0.14.0",
-    "harden": "^0.17.0",
+    "falzy": "^0.16.0",
+    "harden": "^0.19.0",
     "kount": "^0.10.0",
-    "numric": "^0.8.0",
-    "protype": "^0.18.0",
-    "truly": "^0.14.0",
-    "u200b": "^0.15.0"
+    "numric": "^0.10.0",
+    "protype": "^0.20.0",
+    "truly": "^0.16.0",
+    "u200b": "^0.17.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.23.0",
-    "babel-core": "^6.23.1",
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-latest": "^6.22.0",
+    "babel-preset-latest": "^6.24.0",
     "loosen": "^0.10.0",
-    "source-map-loader": "^0.1.6",
+    "source-map-loader": "^0.2.0",
     "webpack": "^2.2.1"
   }
 }
