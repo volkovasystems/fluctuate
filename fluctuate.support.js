@@ -34,6 +34,9 @@
               			"file": "fluctuate.js",
               			"module": "fluctuate",
               			"author": "Richeve S. Bebedor",
+              			"contributors": [
+              				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
+              			],
               			"eMail": "richeve.bebedor@gmail.com",
               			"repository": "https://github.com/volkovasystems/fluctuate.git",
               			"test": "fluctuate-test.js",
