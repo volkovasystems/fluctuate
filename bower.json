@@ -1,6 +1,6 @@
 {
   "name": "fluctuate",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Transform shallow object to deep object.",
   "main": "fluctuate.deploy.js",
   "support": "fluctuate.support.js",
@@ -28,7 +28,7 @@
     "harden": "^0.21.0",
     "kount": "^0.10.0",
     "numric": "^0.14.0",
-    "u200b": "^0.25.0",
+    "u200b": "^0.27.0",
     "protype": "^0.21.0",
     "truly": "^0.18.0"
   }
