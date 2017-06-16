@@ -1,4 +1,5 @@
 
+const assert = require( "assert" );
 const fluctuate = require( "./fluctuate.js" );
 const loosen = require( "loosen" );
 
@@ -28,10 +29,12 @@ let data = loosen( {
 	}
 } );
 
-console.log( require( "util").inspect( data, { "depth": 5 } ) );
+console.log( require( "util" ).inspect( data, { "depth": 5 } ) );
 
-console.log( require( "util").inspect( fluctuate( data ), { "depth": 5 } ) );
+assert.equal( typeof fluctuate( data ), "object", "should return 'object'" );
 
 let globalData = loosen( global, 1, true );
 
-console.log( fluctuate( globalData ) );
+assert.ok( fluctuate( globalData ), "should not throw error" );
+
+console.log( "ok" );

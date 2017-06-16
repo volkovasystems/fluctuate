@@ -1,8 +1,54 @@
+<!DOCTYPE html>
 <html>
 	<head>
-		<script
-			type="application/javascript"
-			src="./fluctuate.deploy.js">
-		</script>
+		<title>fluctuate unit test</title>
+
+		<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.3.2.css">
+
+		<script type="application/javascript" src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
+
+		<script type="application/javascript" src="./fluctuate.deploy.js"></script>
 	</head>
+
+	<body>
+		<div id="qunit"></div>
+
+		<div id="qunit-fixture"></div>
+
+		<script type="application/javascript">
+			QUnit.test( "fluctuate unit test", function( assert ) {
+
+				let data = {
+								[ "reference" ]:
+									{
+										"0": true,
+										"1": true,
+										"2": true,
+										"3": true,
+										"4": true,
+										"5": true,
+										"6": true,
+										"7": true,
+										"8": true
+									},
+									"hello​.world​.yeah": 1,
+									"hello​.world​.ugh": false,
+									"hello​.world​.hi​.0​.weeeh​.yehey": 123,
+									"hello​.world​.hi​.1​.weeeh​.yehey": 1234,
+									"hello​.world​.hi​.2": "hello world",
+									"hello​.world​.hi​.3": 123,
+									"hello​.world​.hi​.4​.weeeeeeh": 12345,
+									[ Symbol( "format" ) ]: "object-format",
+									[ Symbol( "loosened" ) ]: Symbol( "loosened" )
+							};
+
+				console.log( fluctuate( data ) );
+
+				assert.equal( typeof fluctuate( data ), "object", "should return 'object'" );
+
+				assert.ok( fluctuate( data, 1, true ), "should not throw error" );
+
+			} );
+		</script>
+	</body>
 </html>
