@@ -44,9 +44,9 @@
 
 				console.log( fluctuate( data ) );
 
-				assert.equal( typeof fluctuate( data ), "object", "should return 'object'" );
+				assert.equal( typeof fluctuate( data ) == "object", true, "should return true" );
 
-				assert.ok( fluctuate( data, 1, true ), "should not throw error" );
+				assert.ok( fluctuate( data, 1, true ) );
 
 			} );
 		</script>
