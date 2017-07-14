@@ -56,7 +56,6 @@
 			"kount": "kount",
 			"numric": "numric",
 			"U200b": "u200b",
-			"protype": "protype",
 			"truly": "truly"
 		}
 	@end-include
@@ -67,7 +66,6 @@ const harden = require( "harden" );
 const kount = require( "kount" );
 const numric = require( "numric" );
 const U200b = require( "u200b" );
-const protype = require( "protype" );
 const truly = require( "truly" );
 
 const ACCUMULATOR_PATTERN = /\.{3}/;
@@ -90,7 +88,7 @@ const fluctuate = function fluctuate( entity ){
 		@end-meta-configuration
 	*/
 
-	if( falzy( entity ) || !protype( entity, OBJECT ) ){
+	if( falzy( entity ) || typeof entity != "object" ){
 		throw new Error( "invalid entity" );
 	}
 
@@ -129,7 +127,7 @@ const fluctuate = function fluctuate( entity ){
 		.filter( ( key ) => {
 			let value = entity[ key ];
 
-			return falzy( value ) || !protype( value, OBJECT );
+			return falzy( value ) || typeof value != "object";
 		} )
 		.forEach( ( key ) => {
 			let value = entity[ key ];

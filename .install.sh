@@ -5,7 +5,6 @@ harden \
 kount \
 numric \
 u200b \
-protype \
 truly \
 --save && \
 yarn add \
@@ -23,7 +22,6 @@ harden \
 kount \
 numric \
 u200b \
-protype \
 truly \
 --save \
 --force-latest

@@ -56,18 +56,16 @@
               			"kount": "kount",
               			"numric": "numric",
               			"U200b": "u200b",
-              			"protype": "protype",
               			"truly": "truly"
               		}
               	@end-include
-              */var _keys = require("babel-runtime/core-js/object/keys");var _keys2 = _interopRequireDefault(_keys);var _for = require("babel-runtime/core-js/symbol/for");var _for2 = _interopRequireDefault(_for);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+              */var _keys = require("babel-runtime/core-js/object/keys");var _keys2 = _interopRequireDefault(_keys);var _typeof2 = require("babel-runtime/helpers/typeof");var _typeof3 = _interopRequireDefault(_typeof2);var _for = require("babel-runtime/core-js/symbol/for");var _for2 = _interopRequireDefault(_for);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var falzy = require("falzy");
 var harden = require("harden");
 var kount = require("kount");
 var numric = require("numric");
 var U200b = require("u200b");
-var protype = require("protype");
 var truly = require("truly");
 
 var ACCUMULATOR_PATTERN = /\.{3}/;
@@ -90,7 +88,7 @@ var fluctuate = function fluctuate(entity) {
                                             	@end-meta-configuration
                                             */
 
-	if (falzy(entity) || !protype(entity, OBJECT)) {
+	if (falzy(entity) || (typeof entity === "undefined" ? "undefined" : (0, _typeof3.default)(entity)) != "object") {
 		throw new Error("invalid entity");
 	}
 
@@ -129,7 +127,7 @@ var fluctuate = function fluctuate(entity) {
 	filter(function (key) {
 		var value = entity[key];
 
-		return falzy(value) || !protype(value, OBJECT);
+		return falzy(value) || (typeof value === "undefined" ? "undefined" : (0, _typeof3.default)(value)) != "object";
 	}).
 	forEach(function (key) {
 		var value = entity[key];
