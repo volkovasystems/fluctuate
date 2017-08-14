@@ -7,6 +7,8 @@
 
 		<script type="application/javascript" src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
 
+		<script type="application/javascript" src="https://unpkg.com/loosen/loosen.deploy.js"></script>
+
 		<script type="application/javascript" src="./fluctuate.deploy.js"></script>
 	</head>
 
@@ -18,6 +20,43 @@
 		<script type="application/javascript">
 			QUnit.test( "fluctuate unit test", function( assert ) {
 
+				const loosen = loosen;
+
+				let data = loosen( {
+					"hello": {
+						"world": {
+							"yeah": 1,
+							"ugh": false,
+							"hi": [
+								{
+									"weeeh": {
+										"yehey": 123
+									}
+								},
+								{
+									"weeeh": {
+										"yehey": 1234
+									}
+								},
+								"hello world",
+								123,
+								{
+									"weeeeeeh": 12345
+								}
+							]
+						}
+					}
+				} );
+
+				console.log( data );
+
+				assert.equal( typeof fluctuate( data ) == "object", true, "should be of object data type" );
+
+				let windowData = loosen( window, 1, true );
+
+				assert.ok( fluctuate( windowData ), "should not throw error" );
+
+				/*
 				let data = {
 								[ "reference" ]:
 									{
@@ -47,7 +86,7 @@
 				assert.equal( typeof fluctuate( data ) == "object", true, "should return true" );
 
 				assert.ok( fluctuate( data, 1, true ) );
-
+				*/
 			} );
 		</script>
 	</body>

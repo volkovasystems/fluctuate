@@ -31,10 +31,10 @@ let data = loosen( {
 
 console.log( require( "util" ).inspect( data, { "depth": 5 } ) );
 
-assert.equal( typeof fluctuate( data ) == "object", true, "should return true" );
+assert.equal( typeof fluctuate( data ) == "object", true, "should be of object data type" );
 
 let globalData = loosen( global, 1, true );
 
-assert.ok( fluctuate( globalData ) );
+assert.ok( fluctuate( globalData ), "should not throw error" );
 
 console.log( "ok" );
