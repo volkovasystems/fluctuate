@@ -20,43 +20,6 @@
 		<script type="application/javascript">
 			QUnit.test( "fluctuate unit test", function( assert ) {
 
-				const loosen = loosen;
-
-				let data = loosen( {
-					"hello": {
-						"world": {
-							"yeah": 1,
-							"ugh": false,
-							"hi": [
-								{
-									"weeeh": {
-										"yehey": 123
-									}
-								},
-								{
-									"weeeh": {
-										"yehey": 1234
-									}
-								},
-								"hello world",
-								123,
-								{
-									"weeeeeeh": 12345
-								}
-							]
-						}
-					}
-				} );
-
-				console.log( data );
-
-				assert.equal( typeof fluctuate( data ) == "object", true, "should be of object data type" );
-
-				let windowData = loosen( window, 1, true );
-
-				assert.ok( fluctuate( windowData ), "should not throw error" );
-
-				/*
 				let data = {
 								[ "reference" ]:
 									{
@@ -83,10 +46,10 @@
 
 				console.log( fluctuate( data ) );
 
-				assert.equal( typeof fluctuate( data ) == "object", true, "should return true" );
+				assert.equal( typeof fluctuate( data ) == "object", true, "should be of object data type" );
 
-				assert.ok( fluctuate( data, 1, true ) );
-				*/
+				assert.ok( fluctuate( data, 1, true ), "should not throw error" );
+
 			} );
 		</script>
 	</body>
