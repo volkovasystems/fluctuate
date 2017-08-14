@@ -7,6 +7,8 @@
 
 		<script type="application/javascript" src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
 
+		<script type="application/javascript" src="https://unpkg.com/loosen/loosen.deploy.js"></script>
+
 		<script type="application/javascript" src="./fluctuate.deploy.js"></script>
 	</head>
 
@@ -44,9 +46,9 @@
 
 				console.log( fluctuate( data ) );
 
-				assert.equal( typeof fluctuate( data ) == "object", true, "should return true" );
+				assert.equal( typeof fluctuate( data ) == "object", true, "should be of object data type" );
 
-				assert.ok( fluctuate( data, 1, true ) );
+				assert.ok( fluctuate( data, 1, true ), "should not throw error" );
 
 			} );
 		</script>
